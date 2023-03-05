@@ -193,10 +193,15 @@ EXPOSE 5432
 #############################
 # BASE
 #############################
+RUN apk add npm git build-base make g++
+
+RUN mix local.hex --force
+RUN mix archive.install --force hex phx_new #{PHOENIX_VERSION}
+RUN mix local.rebar --force
+
 ADD https://raw.githubusercontent.com/nickjj/wait-until/v0.2.0/wait-until /usr/local/bin
 RUN chmod +x /usr/local/bin/wait-until
 
-RUN apk add --update npm
 RUN npm install -g prisma
 
 COPY runner.sh runner.sh
