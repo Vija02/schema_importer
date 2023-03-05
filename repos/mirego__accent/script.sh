@@ -1,8 +1,10 @@
 #!/bin/bash
+apk add yaml-dev
+
 git clone https://github.com/mirego/accent repo
 cd repo
 
-mix deps.get
+mix deps.get --only prod
 DATABASE_URL=postgresql://postgres:password@localhost/postgres mix ecto.migrate
 
 cd ..
