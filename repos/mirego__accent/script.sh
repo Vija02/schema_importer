@@ -13,7 +13,7 @@ cd ..
 cp /helpers/schema.prisma ./
 prisma db pull
 
-exec 1>&3 2>&4
+# exec 1>&3 2>&4
 
-printf "\n====OUTPUT====\n"
+# printf "\n====OUTPUT====\n"
 cat schema.prisma
