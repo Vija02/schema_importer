@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-apk add yaml-dev
+apt-get install libyaml-dev
 
 git clone https://github.com/mirego/accent repo
 cd repo
@@ -13,4 +13,7 @@ cd ..
 cp /helpers/schema.prisma ./
 prisma db pull
 
-cat schema.prisma 1>&3
+exec 1>&3 2>&4
+
+printf "\n====OUTPUT====\n"
+cat schema.prisma
