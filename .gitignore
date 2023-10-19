@@ -1,0 +1,2 @@
+repos/**/schema.prisma
+repos/**/repo/

@@ -1,15 +1,21 @@
-#!/bin/sh
-exec 3>&1 4>&2
-exec 1>/tmp/stdout.log
-exec 2>/tmp/stderr.log
+#!/bin/bash -e
+su postgres -c 'pg_ctl initdb'
+su postgres -c 'pg_ctl -D /var/lib/postgresql/data start'
 
-su -c initdb postgres 
-su -c postgres postgres &
-
-git clone https://github.com/Vija02/schema_importer importer
+git clone --depth=1 https://github.com/Vija02/schema_importer importer
 cd importer
 
 wait-until "psql -U postgres -c 'select 1'"
 
 cd "repos/$REPO_NAME"
+# This should run the migration
 bash script.sh
+
+# Then we can pull it into prisma
+cd "repos/$REPO_NAME"
+cp /helpers/schema.prisma ./
+prisma db pull
+
+curl -H "Content-Type: multipart/form-data" -F "token=$TOKEN" -F "file=@schema.prisma" -F "repo_name=$REPO_NAME" $SERVER_URL/api/schema/prisma
+
+su postgres -c 'pg_ctl -D /var/lib/postgresql/data stop'
