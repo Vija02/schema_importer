@@ -2,7 +2,9 @@
 su postgres -c 'pg_ctl initdb'
 su postgres -c 'pg_ctl -D /var/lib/postgresql/data start'
 
-git clone --depth=1 https://github.com/Vija02/schema_importer importer
+if [ ! -d importer ]; then
+  git clone --depth=1 https://github.com/Vija02/schema_importer importer
+fi
 cd importer
 
 wait-until "psql -U postgres -c 'select 1'"
