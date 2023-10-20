@@ -227,7 +227,7 @@ RUN chmod +x /usr/local/bin/wait-until
 
 RUN npm install -g prisma
 
-COPY ../pgsql_runner.sh runner.sh
-COPY helpers /helpers
+COPY pgsql_runner.sh runner.sh
+COPY elixir-postgres-manual/helpers /helpers
 
 CMD ["/bin/sh", "-c", "bash runner.sh 2>&1 | tee /tmp/scriptOutput"]
