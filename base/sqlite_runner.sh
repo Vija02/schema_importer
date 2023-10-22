@@ -1,11 +1,11 @@
-#!/bin/bash -e
+#!/bin/sh -e
 if [ ! -d importer ]; then
   git clone --depth=1 https://github.com/Vija02/schema_importer importer
 fi
 
 cd "/importer/repos/$REPO_NAME"
 # This should run the migration
-bash script.sh
+sh script.sh
 
 # Then we can pull it into prisma
 cd "/importer/repos/$REPO_NAME"

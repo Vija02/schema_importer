@@ -1,10 +1,10 @@
-FROM keinos/sqlite3:3.43.1
+FROM node:20-alpine3.17
 
 #############################
 # BASE
 #############################
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-RUN apt-get install -y nodejs git make g++
+RUN apk update \
+  && apk add sqlite
 
 RUN npm install -g prisma
 

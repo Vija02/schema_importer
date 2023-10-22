@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/sh -e
 git clone https://github.com/FarmBot/farmbot_os repo
 cd repo
 
