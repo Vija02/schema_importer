@@ -5,17 +5,36 @@ su postgres -c 'pg_ctl -D /var/lib/postgresql/data start'
 if [ ! -d importer ]; then
   git clone --depth=1 https://github.com/Vija02/schema_importer importer
 fi
-cd importer
 
 wait-until "psql -U postgres -c 'select 1'"
 
-cd "repos/$REPO_NAME"
+cd "/importer/repos/$REPO_NAME"
 # This should run the migration
 bash script.sh
 
 # Then we can pull it into prisma
-cd "repos/$REPO_NAME"
+cd "/importer/repos/$REPO_NAME"
 cp /helpers/schema.prisma ./
+
+# Items that we want to exclude
+declare -A map=( [pg_toast]=1 [pg_catalog]=1 [information_schema]=1 )
+
+# Get all the schemas
+allSchemasString=$(psql -U postgres -c 'select schema_name from information_schema.schemata;' | sed -n '3,${p;}' | head -n -2 | tr -d "[:blank:]")
+allSchemasArray=()
+
+while read line; do
+  if ! [[ ${map["$line"]} ]] ; then
+    allSchemasArray+=("\"$line\"")
+  fi
+done <<< "$allSchemasString"
+
+# https://stackoverflow.com/a/9429887
+processedSchemas=$(IFS=, ; echo "${allSchemasArray[*]}")
+
+# Update schema.prisma
+sed -i -e "s/SCHEMAS_REPLACE_ME/$processedSchemas/g" schema.prisma
+
 prisma db pull
 
 echo "Sending data to $SERVER_URL/api/schema/prisma"
