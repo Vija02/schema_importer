@@ -13,5 +13,11 @@ cp /helpers/schema.prisma ./
 
 prisma db pull
 
+if test -f "postprisma.sh"; then
+  bash postprisma.sh
+fi
+
+cd "/importer/repos/$REPO_NAME"
+
 echo "Sending data to $SERVER_URL/api/schema/prisma"
 curl -H "Content-Type: multipart/form-data" -F "token=$TOKEN" -F "file=@schema.prisma" -F "repo_name=$REPO_NAME" $SERVER_URL/api/schema/prisma
