@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'base/elixir-postgres-manual/**'
+      - 'base/pgsql_runner.sh'
     branches:
       - main
   workflow_dispatch:

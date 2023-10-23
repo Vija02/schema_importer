@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'base/sql-sqlite/**'
+      - 'base/sqlite_runner.sh'
     branches:
       - main
   workflow_dispatch:
