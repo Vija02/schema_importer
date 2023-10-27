@@ -1,3 +1,4 @@
 repos/**/schema.prisma
 repos/**/repo/
 repos/**/database.db
+repos/**/db_dump.sql

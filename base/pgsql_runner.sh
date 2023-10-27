@@ -42,8 +42,10 @@ if test -f "postprisma.sh"; then
 fi
 
 cd "/importer/repos/$REPO_NAME"
+# Dump DB
+pg_dump -U postgres -sOD -f db_dump.sql postgres
 
 echo "Sending data to $SERVER_URL/api/schema/prisma"
-curl -H "Content-Type: multipart/form-data" -F "token=$TOKEN" -F "file=@schema.prisma" -F "repo_name=$REPO_NAME" $SERVER_URL/api/schema/prisma
+curl -H "Content-Type: multipart/form-data" -F "token=$TOKEN" -F "file=@schema.prisma" -F "db_dump=@db_dump.sql" -F "repo_name=$REPO_NAME" $SERVER_URL/api/schema/prisma
 
 su postgres -c 'pg_ctl -D /var/lib/postgresql/data stop'
