@@ -21,7 +21,7 @@ RUN apt-get update \
 #############################
 ENV NODE_MAJOR 20
 
-RUN apt-get update && apt-get install -y curl wget tar
+RUN apt-get update && apt-get install -y curl tar
 RUN mkdir -p /etc/apt/keyrings \
 	&& curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
 	&& echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y nodejs git make g++
 ADD https://raw.githubusercontent.com/nickjj/wait-until/v0.2.0/wait-until /usr/local/bin
 RUN chmod +x /usr/local/bin/wait-until
 
-RUN wget https://github.com/Vija02/prisma-engines/releases/download/latest/archive.tar.gz
+ADD https://github.com/Vija02/prisma-engines/releases/download/latest/archive.tar.gz
 RUN mkdir engine-build && tar -xvzf archive.tar.gz -C engine-build
 RUN chmod -R a+x engine-build
 RUN npm install -g prisma
