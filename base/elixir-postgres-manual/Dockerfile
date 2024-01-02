@@ -53,7 +53,9 @@ RUN set -eux; \
 		! grep -q '/usr/share/locale' /etc/dpkg/dpkg.cfg.d/docker; \
 	fi; \
 	apt-get update; apt-get install -y --no-install-recommends locales; rm -rf /var/lib/apt/lists/*; \
-	localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+	echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen; \
+	locale-gen; \
+	locale -a | grep 'en_US.utf8'
 ENV LANG en_US.utf8
 
 RUN set -eux; \
@@ -82,7 +84,7 @@ RUN set -ex; \
 ENV PG_MAJOR 16
 ENV PATH $PATH:/usr/lib/postgresql/$PG_MAJOR/bin
 
-ENV PG_VERSION 16.0-1.pgdg110+1
+ENV PG_VERSION 16.1-1.pgdg110+1
 
 RUN set -ex; \
 	\
@@ -173,11 +175,11 @@ RUN set -eux; \
 	sed -ri "s!^#?(listen_addresses)\s*=\s*\S+.*!\1 = '*'!" /usr/share/postgresql/postgresql.conf.sample; \
 	grep -F "listen_addresses = '*'" /usr/share/postgresql/postgresql.conf.sample
 
-RUN mkdir -p /var/run/postgresql && chown -R postgres:postgres /var/run/postgresql && chmod 2777 /var/run/postgresql
+RUN mkdir -p /var/run/postgresql && chown -R postgres:postgres /var/run/postgresql && chmod 3777 /var/run/postgresql
 
 ENV PGDATA /var/lib/postgresql/data
-# this 777 will be replaced by 700 at runtime (allows semi-arbitrary "--user" values)
-RUN mkdir -p "$PGDATA" && chown -R postgres:postgres "$PGDATA" && chmod 777 "$PGDATA"
+# this 1777 will be replaced by 0700 at runtime (allows semi-arbitrary "--user" values)
+RUN mkdir -p "$PGDATA" && chown -R postgres:postgres "$PGDATA" && chmod 1777 "$PGDATA"
 VOLUME /var/lib/postgresql/data
 
 # We set the default STOPSIGNAL to SIGINT, which corresponds to what PostgreSQL
