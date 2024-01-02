@@ -249,6 +249,7 @@ ADD https://raw.githubusercontent.com/nickjj/wait-until/v0.2.0/wait-until /usr/l
 RUN chmod +x /usr/local/bin/wait-until
 
 RUN wget https://github.com/Vija02/prisma-engines/releases/download/latest/schema-engine
+RUN chmod a+x schema-engine
 RUN npm install -g prisma
 
 COPY pgsql_runner.sh runner.sh
