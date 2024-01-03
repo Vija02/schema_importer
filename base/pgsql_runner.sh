@@ -35,7 +35,7 @@ processedSchemas=$(IFS=, ; echo "${allSchemasArray[*]}")
 # Update schema.prisma
 sed -i -e "s/SCHEMAS_REPLACE_ME/$processedSchemas/g" schema.prisma
 
-PRISMA_SCHEMA_ENGINE_BINARY=/schema-engine prisma db pull
+prisma db pull
 
 if test -f "postprisma.sh"; then
   bash postprisma.sh
