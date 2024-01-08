@@ -11,6 +11,14 @@ on:
 
 jobs:
   build_and_publish:
+    strategy:
+      matrix:
+        node_versions: 
+          [
+            { dockerfile: 'Dockerfile', tag: 'elixir-postgres-manual' },
+            { dockerfile: 'Dockerfile1.12', tag: 'elixir-postgres-manual-1.12' }
+          ]
+
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -37,13 +45,13 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
           tags: |
-            elixir-postgres-manual
+            ${{ matrix.node_versions.tag }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3.1.1
         with:
           context: ./base
-          file: base/elixir-postgres-manual/Dockerfile
+          file: base/elixir-postgres-manual/${{ matrix.node_versions.dockerfile }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
