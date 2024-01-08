@@ -242,7 +242,7 @@ RUN mkdir -p /etc/apt/keyrings \
 RUN apt-get update && apt-get install -y nodejs git make g++ tar
 
 RUN mix local.hex --force
-RUN mix archive.install --force hex phx_new 1.7.2
+RUN mix archive.install --force hex phx_new 1.6.16
 RUN mix local.rebar --force
 
 ADD https://raw.githubusercontent.com/nickjj/wait-until/v0.2.0/wait-until /usr/local/bin
