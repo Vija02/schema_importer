@@ -1,4 +1,4 @@
-FROM elixir:1.16.1
+FROM elixir:1.15.7
 
 #############################
 # POSTGRES https://github.com/docker-library/postgres/blob/master/16/bullseye/Dockerfile

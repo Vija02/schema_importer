@@ -18,7 +18,8 @@ jobs:
             { dockerfile: 'Dockerfile', tag: 'elixir-postgres-manual' },
             { dockerfile: 'Dockerfile1.12', tag: 'elixir-postgres-manual-1.12' },
             { dockerfile: 'Dockerfile1.13', tag: 'elixir-postgres-manual-1.13' },
-            { dockerfile: 'Dockerfile1.14', tag: 'elixir-postgres-manual-1.14' }
+            { dockerfile: 'Dockerfile1.14', tag: 'elixir-postgres-manual-1.14' },
+            { dockerfile: 'Dockerfile1.15', tag: 'elixir-postgres-manual-1.15' }
           ]
 
     runs-on: ubuntu-latest
