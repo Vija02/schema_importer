@@ -1,0 +1,26 @@
+#!/bin/bash -e
+git clone https://github.com/guildatech/GuildaEx repo
+cd repo
+
+export DATABASE_NAME=postgres 
+export DATABASE_USER=postgres 
+export DATABASE_HOST=localhost 
+export DATABASE_PORT=5432 
+export DATABASE_PASSWORD=postgres 
+export DATABASE_URL=postgresql://postgres:password@localhost/postgres 
+
+export MIX_ENV=prod
+export SECRET_KEY_BASE=BVPgT+mzxjDi6FiG4f4+6mxqE731gDxpT5kw0fp1tAs5taquyZ39kOEUbQBlm4Od
+export TELEGRAM_BOT_USERNAME=d
+export TELEGRAM_BOT_TOKEN=d
+export AWS_BUCKET=d
+export AWS_REGION=d
+export AWS_ACCESS_KEY_ID=d
+export AWS_SECRET_ACCESS_KEY=d
+export MAPBOX_ACCESS_TOKEN=d
+export MAILGUN_API_KEY=d
+export MAILGUN_DOMAIN=d
+
+mix deps.get --force
+mix deps.update ecto_sql
+mix ecto.setup
