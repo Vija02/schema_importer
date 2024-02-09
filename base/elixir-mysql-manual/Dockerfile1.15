@@ -114,7 +114,7 @@ ADD https://github.com/Vija02/prisma-engines/releases/download/latest/schema-eng
 RUN chmod a+x schema-engine
 RUN npm install -g prisma
 
-COPY pgsql_runner.sh runner.sh
-COPY elixir-postgres-manual/helpers /helpers
+COPY mysql_runner.sh runner.sh
+COPY elixir-mysql-manual/helpers /helpers
 
 CMD ["/bin/sh", "-c", "bash runner.sh 2>&1 | tee /tmp/scriptOutput"]
