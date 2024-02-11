@@ -1,5 +1,5 @@
 #!/bin/bash -e
-mysqld --user=root &
+mariadbd &
 
 if [ ! -d importer ]; then
   git clone --depth=1 https://github.com/Vija02/schema_importer importer
@@ -30,4 +30,4 @@ mysqldump -uroot -ppassword --no-data --routines --single-transaction db > db_du
 echo "Sending data to $SERVER_URL/api/schema/prisma"
 curl -H "Content-Type: multipart/form-data" -F "token=$TOKEN" -F "file=@schema.prisma" -F "db_dump=@db_dump.sql" -F "repo_name=$REPO_NAME" $SERVER_URL/api/schema/prisma
 
-pkill mysqld
+pkill mariadbd
