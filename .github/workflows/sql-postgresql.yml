@@ -5,6 +5,7 @@ on:
     paths:
       - 'base/sql-postgresql/**'
       - 'base/pgsql_runner.sh'
+      - 'base/pgsql_ubuntu_runner.sh'
     branches:
       - main
   workflow_dispatch:
