@@ -1,7 +1,5 @@
 FROM mariadb:11.3.2-jammy
 
-USER mysql
-
 #############################
 # BASE
 #############################
@@ -23,5 +21,7 @@ RUN npm install -g prisma
 
 COPY mysql_runner.sh runner.sh
 COPY sql-mysql/helpers /helpers
+
+USER mysql
 
 CMD ["/bin/sh", "-c", "bash runner.sh 2>&1 | tee /tmp/scriptOutput"]
