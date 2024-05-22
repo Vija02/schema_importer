@@ -18,12 +18,16 @@ RUN set -ex; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
 		gnupg \
+# https://www.postgresql.org/docs/16/app-psql.html#APP-PSQL-META-COMMAND-PSET-PAGER
+# https://github.com/postgres/postgres/blob/REL_16_1/src/include/fe_utils/print.h#L25
+# (if "less" is available, it gets used as the default pager for psql, and it only adds ~1.5MiB to our image size)
+		less \
 	; \
 	rm -rf /var/lib/apt/lists/*
 
 # grab gosu for easy step-down from root
 # https://github.com/tianon/gosu/releases
-ENV GOSU_VERSION 1.16
+ENV GOSU_VERSION 1.17
 RUN set -eux; \
 	savedAptMark="$(apt-mark showmanual)"; \
 	apt-get update; \
@@ -84,7 +88,7 @@ RUN set -ex; \
 ENV PG_MAJOR 16
 ENV PATH $PATH:/usr/lib/postgresql/$PG_MAJOR/bin
 
-ENV PG_VERSION 16.1-1.pgdg110+1
+ENV PG_VERSION 16.3-1.pgdg110+1
 
 RUN set -ex; \
 	\
@@ -219,7 +223,7 @@ EXPOSE 5432
 
 ENV PG_MAJOR 16
 ENV POSTGIS_MAJOR 3
-ENV POSTGIS_VERSION 3.4.1+dfsg-1.pgdg110+1
+ENV POSTGIS_VERSION 3.4.2+dfsg-1.pgdg110+1
 RUN apt-get update \
   && apt-cache showpkg postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR \
   && apt-get install -y --no-install-recommends \
