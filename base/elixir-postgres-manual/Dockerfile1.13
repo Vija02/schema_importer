@@ -9,7 +9,7 @@ RUN set -ex; \
 	&& apt-get update \
 	&& apt-get install postgresql-16 postgresql-16-postgis-3 -y
 
-RUN echo "local all postgres trust" > /etc/postgresql/16/main/pg_hba.conf
+RUN echo "host all all 0.0.0.0/0 trust" > /etc/postgresql/16/main/pg_hba.conf
 
 EXPOSE 5432
 
