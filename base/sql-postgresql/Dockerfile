@@ -16,8 +16,6 @@ RUN apt-get update \
 	postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR=$POSTGIS_VERSION \
 	postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR-scripts
 
-RUN echo "local all postgres trust" > /etc/postgresql/16/main/pg_hba.conf
-
 #############################
 # BASE
 #############################
