@@ -1,0 +1,9 @@
+generator gen {
+  provider   = "generator"
+  manyToMany = "false"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:password@localhost/db"
+}
