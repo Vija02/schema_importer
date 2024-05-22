@@ -1,4 +1,12 @@
-FROM mariadb:11.3.2-jammy
+FROM buildpack-deps:bookworm
+
+#############################
+# MariaDB
+#############################
+RUN apt update && \
+	apt install -y mariadb-server && \
+	mkdir -p /run/mysqld && \
+	chmod 777 /run/mysqld
 
 #############################
 # BASE
@@ -21,7 +29,5 @@ RUN npm install -g prisma
 
 COPY mysql_runner.sh runner.sh
 COPY sql-mysql/helpers /helpers
-
-USER mysql
 
 CMD ["/bin/sh", "-c", "bash runner.sh 2>&1 | tee /tmp/scriptOutput"]
