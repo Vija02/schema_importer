@@ -16,6 +16,7 @@ jobs:
         node_versions: 
           [
             { dockerfile: 'Dockerfile', tag: 'elixir-postgres-manual' },
+            { dockerfile: 'Dockerfile1.10', tag: 'elixir-postgres-manual-1.10' },
             { dockerfile: 'Dockerfile1.12', tag: 'elixir-postgres-manual-1.12' },
             { dockerfile: 'Dockerfile1.13', tag: 'elixir-postgres-manual-1.13' },
             { dockerfile: 'Dockerfile1.14', tag: 'elixir-postgres-manual-1.14' },
