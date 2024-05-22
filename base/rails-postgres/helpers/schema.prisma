@@ -1,0 +1,11 @@
+generator gen {
+  provider   = "generator"
+  manyToMany = "false"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:password@localhost/postgres"
+  schemas  = [SCHEMAS_REPLACE_ME]
+}
