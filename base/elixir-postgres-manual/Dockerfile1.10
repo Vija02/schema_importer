@@ -9,8 +9,12 @@ RUN set -ex; \
 	&& apt-get update \
 	&& apt-get install postgresql-16 postgresql-16-postgis-3 -y
 
-RUN echo "local all postgres trust" > /etc/postgresql/16/main/pg_hba.conf \
-	&& echo "host all all 0.0.0.0/0 trust" >> /etc/postgresql/16/main/pg_hba.conf
+RUN echo "local   all             all                                     trust" > /etc/postgresql/16/main/pg_hba.conf \
+	&& echo "host    all             all             127.0.0.1/32            trust" >> /etc/postgresql/16/main/pg_hba.conf \
+	&& echo "host    all             all             ::1/128                 trust" >> /etc/postgresql/16/main/pg_hba.conf \
+	&& echo "local   replication     all                                     trust" >> /etc/postgresql/16/main/pg_hba.conf \
+	&& echo "host    replication     all             127.0.0.1/32            trust" >> /etc/postgresql/16/main/pg_hba.conf \
+	&& echo "host    replication     all             ::1/128                 trust" >> /etc/postgresql/16/main/pg_hba.conf
 
 EXPOSE 5432
 
