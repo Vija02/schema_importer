@@ -5,6 +5,7 @@ on:
     paths:
       - 'base/elixir-postgres-manual/**'
       - 'base/pgsql_runner.sh'
+      - 'base/pgsql_ubuntu_runner.sh'
     branches:
       - main
   workflow_dispatch:
@@ -17,6 +18,7 @@ jobs:
           [
             { dockerfile: 'Dockerfile', tag: 'elixir-postgres-manual' },
             { dockerfile: 'Dockerfile1.10', tag: 'elixir-postgres-manual-1.10' },
+            { dockerfile: 'Dockerfile1.11', tag: 'elixir-postgres-manual-1.11' },
             { dockerfile: 'Dockerfile1.12', tag: 'elixir-postgres-manual-1.12' },
             { dockerfile: 'Dockerfile1.13', tag: 'elixir-postgres-manual-1.13' },
             { dockerfile: 'Dockerfile1.14', tag: 'elixir-postgres-manual-1.14' },
