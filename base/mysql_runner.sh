@@ -1,5 +1,5 @@
 #!/bin/bash -e
-mariadbd &
+mariadbd --user=root &
 
 if [ ! -d importer ]; then
   git clone --depth=1 https://github.com/Vija02/schema_importer importer
