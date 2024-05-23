@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql
+  encoding: unicode
+  host: localhost
+  port: 3306
+  username: root
+  password: password
+
+development:
+  <<: *default
+  database: db
+
+test:
+  <<: *default
+  database: db
+
+production:
+  <<: *default
+  database: db
