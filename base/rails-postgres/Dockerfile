@@ -3,6 +3,17 @@ FROM ruby:3.3.1
 RUN gem install rails
 
 #############################
+# Rails Placeholder
+#############################
+RUN rails new dsl_rails_placeholder \
+	&& cd dsl_rails_placeholder \
+	&& bundle add pg hairtrigger \
+	&& rm -r db \
+	&& rm config/database.yml
+
+COPY rails-postgres/helpers/database.yml dsl_rails_placeholder/config/database.yml
+
+#############################
 # POSTGRES + PostGIS
 #############################
 RUN set -ex; \
