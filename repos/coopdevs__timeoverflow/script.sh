@@ -1,11 +1,8 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/coopdevs/timeoverflow repo
+cd repo
 
-cp repo/db /dsl_rails_placeholder/ -R
-cd /dsl_rails_placeholder
+export DATABASE_URL=postgresql://postgres:password@localhost/postgres
+export MIGRATION_FOLDER=db
 
-if test -f "db/schema.rb"; then
-  rails db:schema:load
-else
-	rails db:migrate
-fi
+find $MIGRATION_FOLDER -iname "*.sql" ! -iname "down.sql" | sort | xargs printf -- '-f %s\n' | xargs psql $DATABASE_URL -v ON_ERROR_STOP=1
