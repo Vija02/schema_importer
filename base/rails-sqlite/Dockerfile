@@ -7,7 +7,7 @@ RUN gem install rails
 #############################
 RUN rails new dsl_rails_placeholder \
 	&& cd dsl_rails_placeholder \
-	&& bundle add sqlite3 hairtrigger \
+	&& bundle add hairtrigger \
 	&& rm -r db \
 	&& rm config/database.yml
 
