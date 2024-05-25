@@ -1,11 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/gitlabhq/gitlabhq repo
+cd repo
 
-cp repo/db /dsl_rails_placeholder/ -R
-cd /dsl_rails_placeholder
+export DATABASE_URL=postgresql://postgres:password@localhost/postgres
 
-if test -f "db/schema.rb"; then
-  rails db:schema:load
-else
-	rails db:migrate
-fi
+psql $DATABASE_URL -f db/structure.sql -v ON_ERROR_STOP=1
