@@ -1,6 +1,12 @@
-#!/bin/bash -e
-set -e
-set -o pipefail
+#!/bin/bash
+set -x
+
+error_handler() {
+    exit_code=$?
+    echo "Error: Command exited with status $exit_code"
+    exit $exit_code
+}
+
 pg_ctlcluster 16 main start
 
 if [ ! -d importer ]; then
