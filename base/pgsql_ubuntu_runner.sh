@@ -6,6 +6,7 @@ error_handler() {
     echo "Error: Command exited with status $exit_code"
     exit $exit_code
 }
+trap 'error_handler' ERR
 
 pg_ctlcluster 16 main start
 
