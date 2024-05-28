@@ -1,4 +1,6 @@
 #!/bin/bash -e
+set -e
+set -o pipefail
 pg_ctlcluster 16 main start
 
 if [ ! -d importer ]; then
