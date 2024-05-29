@@ -13,6 +13,7 @@ if [ ! -d importer ]; then
 fi
 
 cd "/importer/repos/$REPO_NAME"
+rm -f database.db
 # This should run the migration
 sh script.sh
 
