@@ -36,4 +36,4 @@ RUN npm install -g prisma yarn
 COPY pgsql_runner.sh runner.sh
 COPY sequelize-postgres-manual/helpers /helpers
 
-CMD ["/bin/sh", "-c", "bash runner.sh 2>&1 | tee /tmp/scriptOutput"]
+CMD ["/bin/sh", "-c", "bash runner.sh"]

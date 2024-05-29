@@ -43,4 +43,4 @@ RUN npm install -g prisma
 COPY pgsql_ubuntu_runner.sh runner.sh
 COPY elixir-postgres-manual/helpers /helpers
 
-CMD ["/bin/sh", "-c", "bash runner.sh 2>&1 | tee /tmp/scriptOutput"]
+CMD ["/bin/sh", "-c", "bash runner.sh"]

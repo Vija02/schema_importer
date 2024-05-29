@@ -34,4 +34,4 @@ RUN npm install -g prisma
 COPY sqlite_runner.sh runner.sh
 COPY rails-sqlite/helpers /helpers
 
-CMD ["/bin/sh", "-c", "bash runner.sh 2>&1 | tee /tmp/scriptOutput"]
+CMD ["/bin/sh", "-c", "bash runner.sh"]

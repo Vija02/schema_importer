@@ -30,4 +30,4 @@ RUN npm install -g prisma
 COPY mysql_runner.sh runner.sh
 COPY sql-mysql/helpers /helpers
 
-CMD ["/bin/sh", "-c", "bash runner.sh 2>&1 | tee /tmp/scriptOutput"]
+CMD ["/bin/sh", "-c", "bash runner.sh"]
