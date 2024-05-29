@@ -1,20 +1,11 @@
 FROM postgres:16-bullseye
 
 # PostGIS
-# https://github.com/postgis/docker-postgis/blob/master/16-3.4/Dockerfile
-
-ENV PG_MAJOR 16
-ENV POSTGIS_MAJOR 3
-ENV POSTGIS_VERSION 3.4.1+dfsg-1.pgdg110+1
-RUN apt-get update \
-  && apt-cache showpkg postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR \
-  && apt-get install -y --no-install-recommends \
-	# ca-certificates: for accessing remote raster files;
-	#   fix: https://github.com/postgis/docker-postgis/issues/307
-	ca-certificates \
-	\
-	postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR=$POSTGIS_VERSION \
-	postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR-scripts
+RUN set -ex; \
+	apt-get update && apt-get install -y ca-certificates postgresql-common \
+	&& yes | /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh \
+	&& apt-get update \
+	&& apt-get install postgresql-16 postgresql-16-postgis-3 -y
 
 #############################
 # BASE
