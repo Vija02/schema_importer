@@ -52,4 +52,4 @@ RUN npm install -g prisma
 COPY pgsql_ubuntu_runner.sh runner.sh
 COPY rails-postgres/helpers /helpers
 
-CMD ["/bin/sh", "-c", "bash runner.sh 2>&1 | tee /tmp/scriptOutput"]
+CMD ["/bin/sh", "-c", "bash -o pipefail runner.sh 2>&1 | tee /tmp/scriptOutput"]
