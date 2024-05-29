@@ -1,11 +1,17 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/tootsuite/mastodon repo
+cd repo
 
-cp repo/db /dsl_rails_placeholder/ -R
-cd /dsl_rails_placeholder
+export DB_NAME=postgres 
+export DB_USER=postgres 
+export DB_HOST=localhost 
+export DB_PORT=5432 
+export DB_PASS=postgres 
+export DATABASE_URL=postgresql://postgres:password@localhost/postgres 
 
-if test -f "db/schema.rb"; then
-  rails db:schema:load
-else
-	rails db:migrate
-fi
+export RAILS_ENV=development
+
+apt-get install -y libidn11-dev
+
+bundle install
+rails db:schema:load
