@@ -1,4 +1,13 @@
-#!/bin/bash -e
+#!/bin/bash
+set -x
+
+error_handler() {
+  exit_code=$?
+  echo "Error: Command exited with status $exit_code"
+  exit $exit_code
+}
+trap 'error_handler' ERR
+
 su postgres -c 'pg_ctl initdb'
 su postgres -c 'pg_ctl -D /var/lib/postgresql/data start'
 

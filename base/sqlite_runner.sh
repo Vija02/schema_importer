@@ -1,4 +1,13 @@
-#!/bin/sh -e
+#!/bin/bash
+set -x
+
+error_handler() {
+  exit_code=$?
+  echo "Error: Command exited with status $exit_code"
+  exit $exit_code
+}
+trap 'error_handler' ERR
+
 if [ ! -d importer ]; then
   git clone --depth=1 https://github.com/Vija02/schema_importer importer
 fi

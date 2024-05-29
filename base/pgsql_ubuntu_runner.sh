@@ -2,9 +2,9 @@
 set -x
 
 error_handler() {
-    exit_code=$?
-    echo "Error: Command exited with status $exit_code"
-    exit $exit_code
+  exit_code=$?
+  echo "Error: Command exited with status $exit_code"
+  exit $exit_code
 }
 trap 'error_handler' ERR
 

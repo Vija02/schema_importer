@@ -1,4 +1,13 @@
-#!/bin/bash -e
+#!/bin/bash
+set -x
+
+error_handler() {
+  exit_code=$?
+  echo "Error: Command exited with status $exit_code"
+  exit $exit_code
+}
+trap 'error_handler' ERR
+
 mariadbd --user=root &
 
 if [ ! -d importer ]; then
