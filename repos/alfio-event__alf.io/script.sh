@@ -5,4 +5,4 @@ cd repo
 export DATABASE_URL=postgresql://postgres:password@localhost/postgres
 export MIGRATION_FOLDER=src/main/resources/alfio/db/PGSQL
 
-find $MIGRATION_FOLDER -iname "*.sql" ! -iname "down.sql" | sort -V | xargs printf -- '-f %s\n' | xargs psql $DATABASE_URL -v ON_ERROR_STOP=1
+find $MIGRATION_FOLDER -iname "*.sql" ! -iname "down.sql" | sort -V --field-separator=_ --key=1,2 | xargs printf -- '-f %s\n' | xargs psql $DATABASE_URL -v ON_ERROR_STOP=1
