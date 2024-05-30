@@ -1,6 +1,8 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/jamesball27/enigma-chat repo
 
+cd repo && git pull && cd ..
+
 cp repo/db /dsl_rails_placeholder/ -R
 cd /dsl_rails_placeholder
 
