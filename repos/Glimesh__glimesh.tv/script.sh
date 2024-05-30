@@ -20,4 +20,4 @@ sed -i -e "s/socket_options/# socket_options/g" config/releases.exs
 
 mix deps.get --force
 mix deps.update ssl_verify_fun phoenix_markdown
-DATABASE_NAME=postgres DATABASE_USER=postgres DATABASE_HOST=localhost DATABASE_PORT=5432 DATABASE_PASSWORD=postgres DATABASE_URL=postgresql://postgres:password@localhost/postgres mix ecto.setup
+DATABASE_NAME=postgres DATABASE_USER=postgres DATABASE_HOST=localhost DATABASE_PORT=5432 DATABASE_PASSWORD=postgres DATABASE_URL=postgresql://postgres:password@localhost/postgres mix ecto.migrate
