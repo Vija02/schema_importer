@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/spacedriveapp/spacedrive repo
 cd repo
+git pull
 
 export DATABASE_URL=../database.db
 export MIGRATION_FOLDER=core/prisma

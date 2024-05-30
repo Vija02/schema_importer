@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/jeregrine/hex-search repo
 cd repo
+git pull
 
 export DATABASE_PATH=../database.db
 

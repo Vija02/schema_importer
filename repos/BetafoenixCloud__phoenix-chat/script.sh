@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/BetafoenixCloud/phoenix-chat repo
 cd repo
+git pull
 
 sed -i -e "s/ssl: true/# ssl: true/g" config/prod.exs
 sed -i -e "s/ \"10\"),/ \"10\")/g" config/prod.exs

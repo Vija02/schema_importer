@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/BeaconCMS/beacon repo
 cd repo
+git pull
 
 sed -i -e "s/beacon_dev/postgres/g" config/dev.exs
 

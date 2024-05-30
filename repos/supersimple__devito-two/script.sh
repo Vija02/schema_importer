@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/supersimple/devito-two repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DATABASE_USER=postgres 

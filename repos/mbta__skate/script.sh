@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/mbta/skate repo
 cd repo
+git pull
 
 sed -i -e "s/skate_dev/postgres/g" config/dev.exs
 

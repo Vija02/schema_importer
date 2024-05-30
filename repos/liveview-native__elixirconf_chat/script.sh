@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/liveview-native/elixirconf_chat repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DB_NAME=postgres 

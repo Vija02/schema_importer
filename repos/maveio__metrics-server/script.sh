@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/maveio/metrics-server repo
 cd repo
+git pull
 
 su postgres -c 'pg_ctl -D /var/lib/postgresql/data stop'
 

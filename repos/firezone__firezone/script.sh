@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/firezone/firezone repo
 cd repo
+git pull
 cd elixir
 
 mix deps.get --force

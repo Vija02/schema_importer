@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/0xmohsinpathan/Muscle-Mind repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DATABASE_USER=postgres 

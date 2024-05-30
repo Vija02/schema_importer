@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/soulprovidr/nudedisco repo
 cd repo
+git pull
 
 export DATABASE_PATH=../database.db
 

@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/planetscale/beam repo
 cd repo
+git pull
 
 export MIGRATION_FOLDER=prisma
 

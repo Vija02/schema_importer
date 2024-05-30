@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/Peppermint-Lab/Peppermint repo
 cd repo
+git pull
 
 export DATABASE_URL=postgresql://postgres:password@localhost/postgres
 export MIGRATION_FOLDER=apps/api/src/prisma/migrations

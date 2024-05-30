@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/coderdojobraga/bokken repo
 cd repo
+git pull
 
 export DB_NAME=postgres 
 export DB_USERNAME=postgres 

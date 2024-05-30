@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/faisalsayed10/firefiles repo
 cd repo
+git pull
 
 export SCHEMA_FOLDER=apps/web/prisma
 mkdir -p $SCHEMA_FOLDER/migrations/0_init

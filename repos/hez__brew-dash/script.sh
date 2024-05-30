@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/hez/brew-dash repo
 cd repo
+git pull
 
 export SQLITE_DB_FILE=../database.db
 

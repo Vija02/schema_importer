@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/jshmrtn/hygeia repo
 cd repo
+git pull
 
 export SECRET_KEY_BASE=d 
 export WEB_IAM_CLIENT_ID=d 

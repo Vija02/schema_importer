@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/caddishouse/reader repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DATABASE_USER=postgres 

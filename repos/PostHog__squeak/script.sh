@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/PostHog/squeak repo
 cd repo
+git pull
 
 export DATABASE_URL=postgresql://postgres:password@localhost/postgres
 export MIGRATION_FOLDER=packages/squeak/prisma/migrations

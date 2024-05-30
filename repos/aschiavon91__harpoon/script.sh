@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/aschiavon91/harpoon repo
 cd repo
+git pull
 
 export DATABASE_FILE=../database.db
 

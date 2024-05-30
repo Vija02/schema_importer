@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/FranckKe/mersea repo
 cd repo
+git pull
 
 export DB_DATABASE=postgres 
 export DB_USERNAME=postgres 

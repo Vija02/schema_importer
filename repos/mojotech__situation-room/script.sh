@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/mojotech/situation-room repo
 cd repo
+git pull
 
 export MIX_ENV=prod
 export SECRET_KEY_BASE=d

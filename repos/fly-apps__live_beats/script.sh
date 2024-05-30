@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/fly-apps/live_beats repo
 cd repo
+git pull
 
 export MIX_ENV=prod
 export LIVE_BEATS_GITHUB_CLIENT_ID=d

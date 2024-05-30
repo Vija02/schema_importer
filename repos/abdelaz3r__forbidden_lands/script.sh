@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/abdelaz3r/forbidden_lands repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DATABASE_USER=postgres 

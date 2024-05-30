@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/stackernews/stacker.news repo
 cd repo
+git pull
 
 git reset --hard
 

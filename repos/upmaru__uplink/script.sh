@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/upmaru/uplink repo
 cd repo
+git pull
 
 export UPLINK_DB_NAME=postgres 
 export UPLINK_DB_USERNAME=postgres 

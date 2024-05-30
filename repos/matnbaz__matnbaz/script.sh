@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/matnbaz/matnbaz repo
 cd repo
+git pull
 
 export DATABASE_URL=postgresql://postgres:password@localhost/postgres
 export MIGRATION_FOLDER=apps/api/prisma/migrations

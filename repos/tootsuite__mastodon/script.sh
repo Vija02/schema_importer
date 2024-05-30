@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/tootsuite/mastodon repo
 cd repo
+git pull
 
 export DB_NAME=postgres 
 export DB_USER=postgres 

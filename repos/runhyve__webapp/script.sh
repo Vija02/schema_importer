@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/runhyve/webapp repo
 cd repo
+git pull
 
 export POSTGRES_DB=postgres 
 export POSTGRES_USER=postgres 

@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/Bluetab/td-dd repo
 cd repo
+git pull
 
 export DB_NAME=postgres 
 export DB_USER=postgres 

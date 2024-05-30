@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/hta218/leohuynh.dev repo
 cd repo
+git pull
 
 export MIGRATION_FOLDER=prisma
 

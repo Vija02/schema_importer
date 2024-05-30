@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/dendronhq/dendron repo
 cd repo
+git pull
 
 export DATABASE_URL=../database.db
 export MIGRATION_FOLDER=packages/engine-server/prisma/migrations

@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/recursiveGecko/race_bot repo
 cd repo
+git pull
 
 export DATABASE_PATH=../database.db
 

@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/emadb/zios_pizza repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DB_NAME=postgres 

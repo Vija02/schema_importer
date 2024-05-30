@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/dani-garcia/vaultwarden repo
 cd repo
+git pull
 
 export DATABASE_URL=postgresql://postgres:password@localhost/postgres
 export MIGRATION_FOLDER=migrations/postgresql

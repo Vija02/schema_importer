@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/trento-project/wanda repo
 cd repo
+git pull
 
 curl https://sh.rustup.rs -sSf | bash -s -- -y
 source "$HOME/.cargo/env"

@@ -2,6 +2,7 @@
 git clone https://github.com/bikebrigade/dispatch repo
 
 cd repo
+git pull
 
 cp .env.local.sample .env.local
 

@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/rocketseat-education/nlw-heat-elixir repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DATABASE_USER=postgres 

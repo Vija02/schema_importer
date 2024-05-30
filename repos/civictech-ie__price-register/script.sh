@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/civictech-ie/price-register repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DB_NAME=postgres 

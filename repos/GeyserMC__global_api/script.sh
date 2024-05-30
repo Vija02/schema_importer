@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/GeyserMC/global_api repo
 cd repo
+git pull
 
 curl https://sh.rustup.rs -sSf | bash -s -- -y
 source "$HOME/.cargo/env"

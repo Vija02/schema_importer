@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/Norwik/Gorilla repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DB_DATABASE=postgres 

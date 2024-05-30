@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/RonaldGuilhermePDS/Petal-Voice-Chat repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DATABASE_USER=postgres 

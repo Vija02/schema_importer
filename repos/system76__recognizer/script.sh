@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/system76/recognizer repo
 cd repo
+git pull
 
 export DATABASE_NAME=db 
 export DATABASE_USER=root 

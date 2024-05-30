@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/juanpabloaj/who_is_hiring_hacker_news repo
 cd repo
+git pull
 
 export MIX_ENV=prod
 

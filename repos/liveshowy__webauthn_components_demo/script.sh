@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/liveshowy/webauthn_components_demo repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DATABASE_USER=postgres 

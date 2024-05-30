@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/joisig/turtles repo
 cd repo
+git pull
 
 export DATABASE_PATH=../database.db
 

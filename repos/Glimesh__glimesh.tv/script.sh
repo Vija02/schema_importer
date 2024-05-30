@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/Glimesh/glimesh.tv repo
 cd repo
+git pull
 
 export MIX_ENV=releases
 export SECRET_KEY_BASE=d

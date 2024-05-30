@@ -2,6 +2,7 @@
 git clone https://github.com/outline/outline repo
 
 cd repo
+git pull
 
 if [ -f yarn.lock ]; then
   yarn

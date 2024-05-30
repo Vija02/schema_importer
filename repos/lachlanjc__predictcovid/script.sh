@@ -2,6 +2,7 @@
 set -x
 git clone --recursive https://github.com/lachlanjc/predictcovid repo
 cd repo
+git pull
 
 export DATABASE_URL=../database.db
 export MIGRATION_FOLDER=api/prisma

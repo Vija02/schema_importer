@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/Benricheson101/anti-phishing-bot repo
 cd repo
+git pull
 
 export DATABASE_URL=postgresql://postgres:password@localhost/postgres
 export MIGRATION_FOLDER=services/bot/prisma/migrations

@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/techlore/plexus repo
 cd repo
+git pull
 
 export MIX_ENV=prod
 export SECRET_KEY_BASE=L9R/nrwaipUQE0u9DlNV5guuY68Ol62dL1dPdPInEYLucufWjPPSC4E6MweUWxyw

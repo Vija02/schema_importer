@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/guessthepw/stripe_live_view repo
 cd repo
+git pull
 
 export DATABASE_NAME=postgres 
 export DATABASE_USER=postgres 

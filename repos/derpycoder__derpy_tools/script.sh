@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone --recursive https://github.com/derpycoder/derpy_tools repo
 cd repo
+git pull
 
 export DATABASE_PATH=../database.db
 

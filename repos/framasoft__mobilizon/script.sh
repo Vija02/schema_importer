@@ -4,6 +4,7 @@ apt-get install -y cmake
 git clone https://github.com/framasoft/mobilizon repo
 
 cd repo
+git pull
 
 mix deps.get --force
 # Custom env

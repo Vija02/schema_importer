@@ -2,6 +2,7 @@
 set -x
 git clone --recursive https://github.com/huginn/huginn repo
 cd repo
+git pull
 
 cat <<EOT > .env
 APP_SECRET_TOKEN=REPLACE_ME_NOW!

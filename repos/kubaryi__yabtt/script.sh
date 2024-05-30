@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/kubaryi/yabtt repo
 cd repo
+git pull
 
 export DATABASE_PATH=../database.db
 

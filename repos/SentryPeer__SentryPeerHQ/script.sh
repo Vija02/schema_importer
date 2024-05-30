@@ -1,6 +1,7 @@
 #!/bin/bash -e
 git clone https://github.com/SentryPeer/SentryPeerHQ repo
 cd repo
+git pull
 
 su postgres -c 'pg_ctl -D /var/lib/postgresql/data stop'
 
